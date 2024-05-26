@@ -1,18 +1,18 @@
+#
+# This is the server logic of a Shiny web application. You can run the
+# application by clicking 'Run App' above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+
 library(shiny)
+library(leaflet)
+library(ggplot2)
+library(dplyr)
+library(shinydashboard)
 
-# Section 1
-
-function(input, output) {
+function(input, output, session) {
   
-# Section 2
-  
-  output$testText <- renderText({
-    
-    # Section 3
-    
-    paste0('Hello there! I see youa re borde tberwewn ', 
-           input$testRange[1],
-           ' and ',
-           input$testRange[2])
-  })
 }

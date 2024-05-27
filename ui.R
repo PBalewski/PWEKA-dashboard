@@ -11,6 +11,48 @@ library(shiny)
 library(leaflet)
 library(shinydashboard)
 
+
 dashboardPage(
-  
+  dashboardHeader(title = "Dashboard"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Confusion matrix", tabName = "confusionMatrix", icon = icon("table")),
+      menuItem("Learning curves plot", tabName = "learningCurves", icon = icon("table"))
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem(tabName = "confusionMatrix",
+              fluidRow(
+                column(3,
+                       selectInput("selectAlgorithm", label = h3("Select algorithm"),
+                                   choices = list("Random Forest" = "rf", 
+                                                  "Decision Tree" = "dt",
+                                                  "Logistic Regression" = "lr", 
+                                                  "Neural Network" = "nn"), 
+                                   selected = "rf"))
+              ),
+              fluidRow(
+                column(9,
+                       plotOutput("confusionMatrix"))
+              )),
+      tabItem(tabName = "learningCurves",
+              fluidRow(
+                column(3,
+                       checkboxGroupInput("chooseAlgorithms", label = h3("Choose algorithm(s)"),
+                                   choices = list("Random Forest" = "rf", 
+                                                  "Decision Tree" = "dt",
+                                                  "Logistic Regression" = "lr", 
+                                                  "Neural Network" = "nn",
+                                                  "Support Vector Machine" = "svm"), 
+                                   selected = "rf"))
+              ),
+              fluidRow(
+                column(9,
+                       plotOutput("learning_curves"))
+              )
+      )
+    )
+  )
 )
+

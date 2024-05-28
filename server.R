@@ -17,11 +17,9 @@ library(rpart)
 library(nnet)
 library(caret)
 library(mlr)
-library(e1071)
-library(pROC)
-library(plotly)
+library(DT)
+library(DALEX)
 
-install.packages("mlr")
 
 function(input, output, session) {
   
@@ -70,12 +68,10 @@ function(input, output, session) {
     conf_matrix_plot
   })
   
-  
-  
   learning_curves <- reactive({
     learners <- list()
     if ("rf" %in% input$chooseAlgorithms) {
-      learners <- c(learners, makeLearner("classif.randomForest", predict.type = "response", ntree = 100,id="randomForest"))
+      learners <- c(learners, makeLearner("classif.randomForest", predict.type = "response", ntree = 100, id="randomForest"))
     } 
     if ("dt" %in% input$chooseAlgorithms) {
       learners <- c(learners, makeLearner("classif.rpart", predict.type = "response", id="decision tree"))
@@ -89,6 +85,7 @@ function(input, output, session) {
     if ("svm" %in% input$chooseAlgorithms) {
       learners <- c(learners, makeLearner("classif.svm", predict.type = "response", id="SVM"))
     }
+    
     return(learners)
   })
   
@@ -96,9 +93,7 @@ function(input, output, session) {
     learners <- learning_curves()
     if (length(learners) > 0) {
       train_task <- makeClassifTask(data = train_data, target = "infected")
-      # Define the performance measure
       measure <- acc
-      # Define 10-fold cross-validation
       rdesc <- makeResampleDesc("CV", iters = 10)
       learning_curve_data <- generateLearningCurveData(
         learners = learners, 
@@ -107,11 +102,46 @@ function(input, output, session) {
         measures = measure, 
         resampling = rdesc
       )
-      p<-plotLearningCurve(learning_curve_data) +
+      p <- plotLearningCurve(learning_curve_data) +
         ggtitle("Learning Curves for Various Classifiers with 10-Fold Cross-Validation") +
         theme_minimal()
       
-      p
+      print(p)
+    } else {
+      plot.new()
+      text(0.5, 0.5, "No algorithm selected", cex = 1.5)
     }
   })
+  
+  
+  output$dataTableOutput <- renderDT({
+    dt_data = data[][-c(14, 15, 16, 17, 18, 19, 20, 21, 22)]
+    datatable(dt_data, filter = 'top', options = list(
+      pageLength = 5, autoWidth = TRUE, selection = "single"))
+  })
+  
+  
+  output$selectedRowPlot <- renderPlot({
+    selected_row <- input$dataTableOutput_rows_selected
+    if (length(selected_row) == 1) {
+      rf_model <- randomForest(infected ~ ., data = train_data, ntree = 100)
+      explain_rf <- DALEX::explain(model = rf_model,
+                                   data = data[-23],
+                                   y = data$infected == "1", 
+                                   label = "Random Forest")
+      record = data[selected_row,][-23]
+      bd_rf <- predict_parts(explainer = explain_rf,
+                             new_observation = record,
+                             type = "break_down")
+      plot(bd_rf)
+    } else if (length(selected_row) > 1){
+      plot.new()
+      text(0.5, 0.5, "Please select a single row", cex = 1.5)
+    } else {
+      plot.new()
+      text(0.5, 0.5, "Select a row from the table to see the features importance analysis", cex = 1.5)
+    }
+  })
+  
 }
+

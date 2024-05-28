@@ -13,11 +13,12 @@ library(shinydashboard)
 
 
 dashboardPage(
-  dashboardHeader(title = "Dashboard"),
+  dashboardHeader(title = "Poor WEKA"),
   dashboardSidebar(
     sidebarMenu(
       menuItem("Confusion matrix", tabName = "confusionMatrix", icon = icon("table")),
-      menuItem("Learning curves plot", tabName = "learningCurves", icon = icon("table"))
+      menuItem("Learning curves plot", tabName = "learningCurves", icon = icon("table")),
+      menuItem("Datatable", tabName = "dataTable", icon = icon("table"))
     )
   ),
   dashboardBody(
@@ -33,7 +34,7 @@ dashboardPage(
                                    selected = "rf"))
               ),
               fluidRow(
-                column(9,
+                column(5,
                        plotOutput("confusionMatrix"))
               )),
       tabItem(tabName = "learningCurves",
@@ -48,10 +49,18 @@ dashboardPage(
                                    selected = "rf"))
               ),
               fluidRow(
-                column(9,
+                column(5,
                        plotOutput("learning_curves"))
-              )
-      )
+              )),
+      tabItem(tabName = "dataTable",
+              fluidRow(
+                column(10,
+                       DTOutput("dataTableOutput"))
+              ),
+              fluidRow(
+                column(5,
+                       plotOutput("selectedRowPlot"))
+              ))
     )
   )
 )

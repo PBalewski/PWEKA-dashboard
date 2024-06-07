@@ -1,0 +1,45 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff; /* Set the background color to white */
+}
+
+.navbar-default .navbar-brand {
+  color: #2c3e50;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #18bc9c;
+}
+
+.sidebar {
+  background-color: #f8f8f8;
+}
+
+.sidebar .sidebar-menu > li > a {
+  color: #2c3e50;
+}
+
+.sidebar .sidebar-menu > li > a:hover {
+  background-color: #18bc9c;
+  color: #fff;
+}
+
+.content-wrapper, .right-side {
+  background-color: #f0f7fc; 
+  padding: 20px;
+}
+
+.box {
+  border-top: none;
+  border-radius: 5px;
+  margin-bottom: 10px; 
+}
+
+.box-header {
+  background-color: #18bc9c;
+  color: #fff;
+}
+
+#scatterPlot {
+  margin-bottom: 10px; 
+}

@@ -21,7 +21,8 @@ library(DT)
 library(DALEX)
 library(shinythemes)
 library(pROC)
-library(plotly)
+
+
 
 
 dashboardPage(
@@ -33,10 +34,11 @@ dashboardPage(
     sidebarMenu(
       menuItem("Algorithms analizer", tabName = "algorithmsAnalizer", icon = icon("table")),
       menuItem("Dataset analizer", tabName = "dataTable", icon = icon("th")),
-      menuItem("Fancy plot vizualizer", tabName = "fancyPlot", icon = icon("chart-line"))
+      menuItem("Fancy plots vizualizer", tabName = "fancyPlot", icon = icon("chart-line"))
     )
   ),
   dashboardBody(
+    includeCSS("www/style.css"),
     theme = shinythemes::shinytheme("cerulean"),
     tabItems(
       tabItem(tabName = "algorithmsAnalizer",
@@ -107,12 +109,12 @@ dashboardPage(
                          "infected" = "infected"),
                          selected = "time")),
                 column(6,
-                     selectInput("selectAlgorithm2", label = "Select algorithm",
-                                 choices = list("Random Forest" = "Random Forest", 
-                                                "Decision Tree" = "Decision Tree",
-                                                "Logistic Regression" = "Logistic Regression", 
-                                                "Neural Network" = "Neural Network"), 
-                                 selected = "rf"))
+                       selectInput("selectAlgorithm2", label = "Select algorithm",
+                                   choices = list("Random Forest" = "Random Forest", 
+                                                  "Decision Tree" = "Decision Tree",
+                                                  "Logistic Regression" = "Logistic Regression", 
+                                                  "Neural Network" = "Neural Network"), 
+                                   selected = "rf"))
               ),
               fluidRow(
                 column(5,
@@ -147,7 +149,7 @@ dashboardPage(
                 column(5,
                        plotOutput("Boxplot"))
               )
-    ))
+      ))
   )
 )
 

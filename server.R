@@ -21,7 +21,6 @@ library(DT)
 library(DALEX)
 library(shinythemes)
 library(pROC)
-library(plotly)
 
 
 function(input, output, session) {

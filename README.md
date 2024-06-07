@@ -4,9 +4,8 @@
 Hosted on shinyapps.io free version, so can be a little slow.
 ### Overview
 Welcome to the PWEKA (Poor WEKA) Dashboard project!
-This repository contains an interactive R Shiny dashboard that allows user to test different classification algorithms, look for attributes distribution,...
-and many others. For now functionality is only for one dataset, but maybe in the future, we will extend it, so it will be equally good or ever better than true WEKA;)
-TO FINISH
+This repository contains an interactive R Shiny dashboard that allows user to test different classification algorithms, look for attributes distribution, display fancy graphs
+and many others. For now functionality can be tested only on one dataset, but maybe in the future we will extend it so it will became OGWEKA;)
 
 ## Team Members:
 - Piotr Balewski - 156037
@@ -66,7 +65,7 @@ cd DV-Dashboard
  ```
 2. Install the necessary R packages:
 ```R
-install.packages(c()) TO DO
+install.packages(c("shiny", "leaflet", "shinydashboard", "ggplot2", "dplyr", "randomForest", "rpart", "nnet", "caret", "mlr", "DT", "DALEX", "shinythemes", "pROC"))
 ```
 3. Run the Shiny app:
 ```R

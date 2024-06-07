@@ -57,7 +57,7 @@ The dataset for this project includes various health parameters for patients, al
 - infected: is infected with AIDS (0=No, 1=Yes)
 
 ## Running the Dashboard
-To run the dashboard locally, follow these steps (remember that you need to have R language installed):
+To run the dashboard locally, follow these steps (you must have R language installed on your computer):
 1. Clone the repository:
  ```bash
 git clone https://github.com/PBalewski/DV_Dashboard

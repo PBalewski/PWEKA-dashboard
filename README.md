@@ -61,7 +61,7 @@ To run the dashboard locally, follow these steps (you must have R language insta
 1. Clone the repository:
  ```bash
 git clone https://github.com/PBalewski/DV_Dashboard
-cd DV-Dashboard
+cd DV_Dashboard
  ```
 2. Install the necessary R packages:
 ```R

@@ -27,6 +27,6 @@ jobs:
         run: Rscript -e "install.packages(c('shiny', 'leaflet', 'shinydashboard', 'ggplot2', 'dplyr', 'randomForest', 'rpart', 'nnet', 'caret', 'mlr', 'DT', 'DALEX', 'shinythemes', 'pROC', 'rsconnect'))"
       - name: shinyapps deploy
         run: |
-             rsconnect::setAccountInfo(name= 'pbalewski', token='${{secrets.SHINYAPPS_TOKEN}}', secret='${{secrets.SHINYAPPS_SECRET}}')
+             rsconnect::setAccountInfo(name= 'pbalewski', token='4008E8D906AF6B8961548B0B0C23CEAF', secret='+Y6knZm+Ze+HtMg6LmvaJkicFLdYUKIckbyrwdXj')
              rsconnect::deployApp(appName = 'PWEKA_Dashboard',account = 'pbalewski', server = 'shinyapps.io', forceUpdate = TRUE)
         shell: Rscript {0}

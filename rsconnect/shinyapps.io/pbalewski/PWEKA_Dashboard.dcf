@@ -4,8 +4,8 @@ username: pbalewski
 account: pbalewski
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
-appId: 12146594
-bundleId: 8715625
+appId: 12148591
+bundleId: 8717056
 url: https://pbalewski.shinyapps.io/PWEKA_Dashboard/
 version: 1
 asMultiple: FALSE

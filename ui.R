@@ -39,7 +39,6 @@ dashboardPage(
   ),
   dashboardBody(
     includeCSS("www/style.css"),
-    theme = shinythemes::shinytheme("cerulean"),
     tabItems(
       tabItem(tabName = "algorithmsAnalizer",
               fluidRow(

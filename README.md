@@ -1,6 +1,6 @@
 ## PWEKA (Poor WEKA) Dashboard
 
-### [Demo] TO ADD
+### [Demo](https://pbalewski.shinyapps.io/PWEKA_Dashboard/)
 Hosted on shinyapps.io free version, so can be a little slow.
 ### Overview
 Welcome to the PWEKA (Poor WEKA) Dashboard project!
@@ -15,6 +15,8 @@ and many others. For now functionality can be tested only on one dataset, but ma
 ```plaintext
 ├── data/
 │   ├── AIDS_Classification.csv
+├── www/
+│   ├── style.css
 ├── README.md
 ├── server.R
 ├── ui.R
@@ -22,9 +24,10 @@ and many others. For now functionality can be tested only on one dataset, but ma
 ## Content
 
 - data/: This directory contains the CSV files used in the dashboard.
+- www/: This directory contains custom CSS styles for the dashboard.
 - server.R: The server logic of the Shiny application.
 - ui.R: The user interface definition of the Shiny application.
-- README.md: This file, providing an overview of the project.
+- README.md: provides an overview of the project.
 
 ## [Data](https://www.kaggle.com/datasets/aadarshvelu/aids-virus-infection-prediction)
 
@@ -61,7 +64,7 @@ To run the dashboard locally, follow these steps (you must have R language insta
 1. Clone the repository:
  ```bash
 git clone https://github.com/PBalewski/DV_Dashboard
-cd DV-Dashboard
+cd DV_Dashboard
  ```
 2. Install the necessary R packages:
 ```R

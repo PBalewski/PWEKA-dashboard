@@ -3,9 +3,10 @@
 ### [Demo](https://pbalewski.shinyapps.io/PWEKA_Dashboard/)
 Hosted on shinyapps.io free version, so can be a little slow.
 ### Overview
-Welcome to the PWEKA (Poor WEKA) Dashboard project!
+Welcome to the PWEKA (Poor WEKA) Dashboard project!<br />
 This repository contains an interactive R Shiny dashboard that allows user to test different classification algorithms, look for attributes distribution, display fancy graphs
-and many others. For now functionality can be tested only on one dataset, but maybe in the future we will extend it so it will became OGWEKA;)
+and many others. For now functionality can be tested only on one dataset, but maybe in the future we will extend it so it will became OGWEKA;)<br />
+The project was carried out during Data Visualation course on IV sem AI on PUT.
 
 ## Team Members:
 - Piotr Balewski - 156037

@@ -8,8 +8,8 @@ This repository contains an interactive R Shiny dashboard that allows user to te
 and many others. For now functionality can be tested only on one dataset, but maybe in the future we will extend it so it will became OGWEKA;)<br />
 
 ## Team Members:
-- Piotr Balewski - 156037
-- Wojciech Nagórka - 156045
+- PBalewski
+- WojtekNagorka
 ## Repository Structure
 
 ```plaintext
